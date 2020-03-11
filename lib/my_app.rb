@@ -17,6 +17,16 @@ def start_basketball_app
   player_data = csv.map do |row| 
     row.to_hash 
   end
+
+  def user_input_full_data  # this is to add to the csv file, and the options menu, then delete again. 
+    user_name + points_input + rebounds_input + assists_input + games_played
+  end
+
+  def add_to_csv
+    
+  end
+
+
   # p player_data[0]["Assists"]
 
 
@@ -182,6 +192,8 @@ end
     sleep(2)
 
     puts "\n"
+  
+
 
   puts "For a newbie in the NBA, you've done pretty well, you scored #{points_input} points, collected #{rebounds_input} rebounds, dished out #{assists_input} assists, and all through this managed to play a sturdy #{games_played} games against these giants ! Nice Work #{user_name}"
 end
