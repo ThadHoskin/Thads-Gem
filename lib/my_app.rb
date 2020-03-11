@@ -22,8 +22,11 @@ def start_basketball_app
     user_name + points_input + rebounds_input + assists_input + games_played
   end
 
-  def add_to_csv
-    
+  def add_to_csv #adding data to csv
+    user_input_full_data = CSV.parse(<<~ROWS, headers: true)
+    Year,Player,Points,Rebounds,Assists,Games Played
+    2018-2019,user_name,points_input,rebounds_input,assists_input,games_played_input
+  ROWS
   end
 
 
