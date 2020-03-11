@@ -28,6 +28,9 @@ def start_basketball_app
     2018-2019,user_name,points_input,rebounds_input,assists_input,games_played_input
   ROWS
   end
+CSV.open("my_app_csv_file", "a") do |csv|
+csv << user_input_full_data     # 
+end
 
 
   # p player_data[0]["Assists"]
