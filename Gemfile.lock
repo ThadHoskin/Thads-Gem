@@ -1,0 +1,44 @@
+PATH
+  remote: .
+  specs:
+    my_app (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    artii (2.1.2)
+    ast (2.4.0)
+    colorize (0.8.1)
+    jaro_winkler (1.5.4)
+    parallel (1.19.1)
+    parser (2.7.0.4)
+      ast (~> 2.4.0)
+    rainbow (3.0.0)
+    rake (12.3.3)
+    rexml (3.2.4)
+    rubocop (0.80.1)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.7.0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      rexml
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 1.7)
+    ruby-progressbar (1.10.1)
+    terminal-table (1.8.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
+    unicode-display_width (1.6.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  artii
+  colorize
+  my_app!
+  rake (~> 12.0)
+  rubocop
+  terminal-table
+
+BUNDLED WITH
+   2.1.4
