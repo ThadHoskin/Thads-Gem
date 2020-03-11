@@ -146,9 +146,9 @@ def start_basketball_app
     puts "What about rebounds ? How many of these do you think you'd be able to get?".colorize(:yellow)
 # def rebounds_input_getter
     rebounds_input = gets.chomp.to_i
-      if rebounds_input == 0 #back to the start of the loop again after first false cindition
+      if rebounds_input == 0 #back to the start of the loop again after first false condition
         puts "Lets try that again".colorize(:red)
-      if rebounds_input == 10 || rebounds_input > 10
+      elsif rebounds_input == 10 || rebounds_input > 10
         puts "Feeling very lucky ! Remember, these guys are really tall"
       else  
         puts "Nice , to be honest, i'd be happy wth any !"
