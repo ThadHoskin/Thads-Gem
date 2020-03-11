@@ -64,6 +64,7 @@ def start_basketball_app
   user_input = gets.chomp.to_i
   puts "-" *45
   puts "\n"
+  # start_basketball_app
 
   case user_input 
   when 1
@@ -110,13 +111,15 @@ def start_basketball_app
     puts  "WOW !! Another triple double season, he's one of a kind isn't he !"
 
   else user_input != 1 || user_input != 2 || user_input != 3 || user_input != 4 || user_input != 5
-    puts "Error : choose a number between 1 and 5 please! Lets try that again"
-    start_basketball_app
+    puts "Error : choose a number between 1 and 5 please! Lets try that again":
+    start_basketball_app 
   end
 
 
   puts "-" *45
-    sleep(2)
+  puts "Press enter to continue"
+  puts gets.chomp
+    sleep(1)
 
   # #need to have to go back to the start if the wrong input was used.
 
@@ -125,34 +128,45 @@ def start_basketball_app
     sleep(2)
   puts "\n"
     puts "How many points do you think you would score against these guys ?".colorize(:yellow)
+def points_input_getter
     points_input = gets.chomp.to_i
-      if points_input == 30 || points_input > 30
-        puts "ohhh , feeling lucky !"
+      if points_input == 0
+        puts "Lets try that again!"   #how do i return to the start of the loop?
+      elsif points_input == 30 || points_input > 30
+        puts "Ohhh , feeling lucky !"
       else
         puts "Nice! Some truth to it! "
   end
+end  
     sleep(2)
     puts "What about rebounds ? How many of these do you think you'd be able to get?".colorize(:yellow)
+def rebounds_input_getter
     rebounds_input = gets.chomp.to_i
+      if rebounds == 0
+        puts ""
       if rebounds_input == 10 || rebounds_input > 10
         puts "Feeling very lucky ! Remember, these guys are really tall"
       else  
         puts "Nice , to be honest, i'd be happy wth any !"
   end
+end
     sleep(2)
     puts "I suppose we better check those assists out now, eh? You reckon you could get many of these? Care to venture a guess?".colorize(:yellow)
+def assists_input_getter
       assists_input = gets.chomp.to_i
         if assists_input == 10 || assists_input > 10
           puts "Can't believe it , got a John Stockton amongst us ! "
         else 
           puts "Thats a good effort, I think we'd see some turnovers too though unfortunately ! "
   end
+end  
     sleep(2)
     puts "\n"
     puts "Lastly, i suppose we better check how durable you're going to be. Out of 82 games, how many do you think you'd be able to play in?".colorize(:yellow)
+def games_played_input
       games_played = gets.chomp.to_i
         if games_played > 82
-          puts "Thats not possible !"
+          puts "Thats not possible! Try again please." #back to start of loop please
         elsif games_played > 65 && games_played < 83
           puts "I think that would be a very good effort"
         # elsif games_played > 82 || games_played != class.integer
@@ -160,7 +174,7 @@ def start_basketball_app
         else
           puts "I think any games played is a good effort!!"
   end
-
+end
     sleep(2)
 
     puts "\n"
@@ -170,6 +184,7 @@ end
 
 # start app
 start_basketball_app
+
 
 #case statement
 # puts " how many points?"
