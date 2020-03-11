@@ -77,37 +77,41 @@ def start_basketball_app
     puts "Ahhh, wow !! He's had a good 2018-2019 season, yet again !"
   when 2
     puts "You chose Giannis Antetokounmpo, the Greek Freak ! Lets go Bucks ! "
-      sleep(1.5)
-    puts "Hes had an incredible year !! Let me get some stats for you"
+      sleep(2)
+    puts "Let me get those stats for you..."
       sleep(2)
         #pull Giannis stats
     print_player_detail(player_data, user_input - 1)
+    sleep(2)
     puts "He has been incredible, I'd reckon hes got the MVP , wouldn't you !"
   when  3
     puts "You chose Lebron James, The Chosen One ! Good stuff. "
-      sleep(1.5)
+      sleep(2)
     puts "Can never go wrong with The King! "
     puts "Lets see how hes been doing shall we... "
       sleep(2)
         #pull lebron stats
     print_player_detail(player_data, user_input - 1)
+    sleep(2)
     puts "Another great year from Lebron , 33 and still got it !!"
   when  4
     puts "You chose James Harden, the Beard, the reigning MVP ! Lets get some fouls ;)"
-    sleep(1.5)
+    sleep(2)
     puts "Well, you know you're going to get those stats when you choose The Beard, don't ya !"
     puts "Lets go see how he faired this season..."
       #harden stats
     print_player_detail(player_data, user_input - 1)
+    sleep(2)
     puts "Well, he may have not got another MVP , but cant say he wasn't close can we ?"
   when  5
     puts "You chose Russell Westbrook, the walking triple double ! Thunder Up Baby !!"
-      sleep(1.5)
+      sleep(2)
     puts  "Ohhhh, you've chosen the Brody, that's the one, lets see if he can get another one of those triple doubles eh ! "
       sleep(2)
     puts "Lets check those stats of his eh ..."
         #pull Westbrook stats
     print_player_detail(player_data, user_input - 1)
+    sleep(2)
     puts  "WOW !! Another triple double season, he's one of a kind isn't he !"
 
   else user_input != 1 || user_input != 2 || user_input != 3 || user_input != 4 || user_input != 5
@@ -119,7 +123,7 @@ def start_basketball_app
   puts "-" *45
   puts "Press enter to continue"
   puts gets.chomp
-    sleep(1)
+    sleep(2)
 
   # #need to have to go back to the start if the wrong input was used.
 
@@ -128,31 +132,31 @@ def start_basketball_app
     sleep(2)
   puts "\n"
     puts "How many points do you think you would score against these guys ?".colorize(:yellow)
-def points_input_getter
+# def points_input_getter
     points_input = gets.chomp.to_i
       if points_input == 0
-        puts "Lets try that again!"   #how do i return to the start of the loop?
+        puts "Lets try that again!".colorize(:red)  #how do i return to the start of the loop?
       elsif points_input == 30 || points_input > 30
         puts "Ohhh , feeling lucky !"
       else
         puts "Nice! Some truth to it! "
   end
-end  
+# end  
     sleep(2)
     puts "What about rebounds ? How many of these do you think you'd be able to get?".colorize(:yellow)
-def rebounds_input_getter
+# def rebounds_input_getter
     rebounds_input = gets.chomp.to_i
-      if rebounds == 0
-        puts ""
+      if rebounds_input == 0 #back to the start of the loop again after first false cindition
+        puts "Lets try that again".colorize(:red)
       if rebounds_input == 10 || rebounds_input > 10
         puts "Feeling very lucky ! Remember, these guys are really tall"
       else  
         puts "Nice , to be honest, i'd be happy wth any !"
   end
-end
+# end
     sleep(2)
     puts "I suppose we better check those assists out now, eh? You reckon you could get many of these? Care to venture a guess?".colorize(:yellow)
-def assists_input_getter
+# def assists_input_getter
       assists_input = gets.chomp.to_i
         if assists_input == 10 || assists_input > 10
           puts "Can't believe it , got a John Stockton amongst us ! "
@@ -163,18 +167,18 @@ end
     sleep(2)
     puts "\n"
     puts "Lastly, i suppose we better check how durable you're going to be. Out of 82 games, how many do you think you'd be able to play in?".colorize(:yellow)
-def games_played_input
+# def games_played_input
       games_played = gets.chomp.to_i
-        if games_played > 82
-          puts "Thats not possible! Try again please." #back to start of loop please
+        if games_played == 0 || games_played > 82
+          puts "Thats not possible! Try again please.".colorize(:red) #back to start of loop please
         elsif games_played > 65 && games_played < 83
           puts "I think that would be a very good effort"
         # elsif games_played > 82 || games_played != class.integer
           # puts "Cmon now, an actual guess please"
         else
-          puts "I think any games played is a good effort!!"
+          puts "I think any number of games played is a good effort!!"
   end
-end
+# end
     sleep(2)
 
     puts "\n"
