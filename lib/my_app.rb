@@ -82,7 +82,7 @@ def games_in_a_season
   elsif input > 0 && input < 83
     puts "Thats sounds like a good season!"
   else
-  # return input
+  return input
   end
   
 end
@@ -143,6 +143,7 @@ puts table
     player_description("You chose Giannis Antetokounmpo, the Greek Freak! Lets go Bucks!") 
       sleep(2)
     stats_getter("Let me get those stats for you...")
+      "\n"
       sleep(2)
     #pull Giannis stats
     print_player_detail(player_data, user_input - 1)
@@ -154,6 +155,7 @@ puts table
       sleep(2)
     # puts "Can never go wrong with The King! "
     stats_getter("Let me get those stats for you...")
+      "\n"
       sleep(2)
     #pull lebron stats
     print_player_detail(player_data, user_input - 1)
@@ -165,6 +167,8 @@ puts table
     sleep(2)
     # puts "Well, you know you're going to get those stats when you choose The Beard, don't ya !"
     stats_getter("Let me get those stats for you...")
+    "\n"
+    sleep(2)
     #harden stats
     print_player_detail(player_data, user_input - 1)
     sleep(2)
@@ -176,6 +180,8 @@ puts table
     puts  "Ohhhh, you've chosen the Brody, that's the one, lets see if he can get another one of those triple doubles eh ! "
     sleep(2)
     stats_getter("Let me get those stats for you...")
+    "\n"
+    sleep(2)
     print_player_detail(player_data, user_input - 1)
     sleep(2)
     player_praise("WOW !! Another triple double season, he's one of a kind isn't he !")
