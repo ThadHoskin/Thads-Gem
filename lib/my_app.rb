@@ -74,13 +74,15 @@ def user_input_data(datatype)
 end
 
 def games_in_a_season
+  # puts "How many games out of 82 do you think you could play?".colorize(:yellow)
   input = gets.chomp.to_i
-  puts "How many games out of 82 do you think you could play?".colorize(:yellow)
-  if games_in_a_season == 0 || games_in_a_season > 82
+  if input == 0 || input > 82
     puts "Lets try that again, #{USER_NAME}!".colorize(:red)
-    input = games_in_a_season(datatype)
-  else 
+    # input = games_in_a_season(datatype)
+  elsif input > 0 && input < 83
     puts "Thats sounds like a good season!"
+  else
+  # return input
   end
   
 end
@@ -147,7 +149,7 @@ puts table
     sleep(2)
     player_praise("He has been incredible, I'd reckon hes got the MVP , wouldn't you !")
   when  3
-  # valid_input = true
+  valid_input = true
     player_description("You chose Lebron James, The Chosen One, The King ! Good stuff.")
       sleep(2)
     # puts "Can never go wrong with The King! "
