@@ -73,8 +73,21 @@ def user_input_data(datatype)
   return input
 end
 
+def games_in_a_season
+  input = gets.chomp.to_i
+  puts "How many games out of 82 do you think you could play?".colorize(:yellow)
+  if games_in_a_season == 0 || games_in_a_season > 82
+    puts "Lets try that again, #{USER_NAME}!".colorize(:red)
+    input = games_in_a_season(datatype)
+  else 
+    puts "Thats sounds like a good season!"
+  end
+  
+end
+
 art = Artii::Base.new
 puts art.asciify "Basketball"
+
 puts "Hey there, whats your name ?".colorize(:yellow)
 USER_NAME = gets.chomp
 puts "Lets play some basketball #{USER_NAME}!!! "
@@ -125,7 +138,7 @@ puts table
     # puts "Ahhh, wow !! He's had a good 2018-2019 season, yet again !"
   when 2
   valid_input = true
-    player_description("You chose Giannis Antetokounmpo, the Greek Freak! Lets go Bucks") 
+    player_description("You chose Giannis Antetokounmpo, the Greek Freak! Lets go Bucks!") 
       sleep(2)
     stats_getter("Let me get those stats for you...")
       sleep(2)
@@ -134,7 +147,7 @@ puts table
     sleep(2)
     player_praise("He has been incredible, I'd reckon hes got the MVP , wouldn't you !")
   when  3
-  valid_input = true
+  # valid_input = true
     player_description("You chose Lebron James, The Chosen One, The King ! Good stuff.")
       sleep(2)
     # puts "Can never go wrong with The King! "
@@ -166,7 +179,7 @@ puts table
     player_praise("WOW !! Another triple double season, he's one of a kind isn't he !")
 
   else # user_input != 1 || user_input != 2 || user_input != 3 || user_input != 4 || user_input != 5
-    puts "Error : choose a number between 1 and 5 please! Lets try that again"
+    puts "Error : choose a number between 1 and 5 please! Lets try that again".colorize(:red)
     # start_basketball_app 
   end
 end
@@ -191,24 +204,28 @@ end
   sleep(2)
   puts "\n"
   puts "Lastly, i suppose we better check how durable you're going to be. Out of 82 games, how many do you think you'd be able to play in?".colorize(:yellow)
-  games_played = gets.chomp.to_i
-  if games_played == 0 || games_played > 82
-  try_again("Lets try that again, #{USER_NAME}!".colorize(:red))  #back to start of loop please
-  elsif games_played > 65 && games_played < 83
-    puts "I think that would be a very good effort #{USER_NAME}"
-  else
-    puts "I think any number of games played is a good effort!!"
-  end
+
+  # input = gets.chomp.to_i
+  # if games_in_a_season == 0 || games_in_a_season > 82
+  # try_again("Lets try that again, #{USER_NAME}!".colorize(:red))  #back to start of loo
+  games_input = games_in_a_season
+  # elsif games_played > 65 && games_played < 83
+    # puts "I think that would be a very good effort #{USER_NAME}"
+  # else
+    # puts "I think any number of games played is a good effort!!"
+  # end
+
   puts "\n"
   sleep(2)
-  puts "For a newbie in the NBA, you've done pretty well, you scored #{points_input} points, collected #{rebounds_input} rebounds, dished out #{assists_input} assists, and all through this managed to play a sturdy #{games_played} games against these giants ! Nice Work #{USER_NAME}"
-
-  puts "heres you on the table".colorize(:yellow)
+  puts "For a newbie in the NBA, you've done pretty well, you scored #{points_input} points, collected #{rebounds_input} rebounds, dished out #{assists_input} assists, and all through this managed to play a sturdy #{games_in_a_season} games against these giants ! Nice Work #{USER_NAME}"
+  sleep(2)
+  puts "\n"
+  puts "Heres you on the table".colorize(:yellow)
 
   table << [USER_NAME,6]
 
   puts table
-
+  sleep(2)
   # now take you out of the array
   puts "Actually, sorry i think i preferred the table the way it was!".colorize(:red)
   sleep(2)
