@@ -74,17 +74,22 @@ def user_input_data(datatype)
 end
 
 def games_in_a_season
-  input = gets.chomp.to_i
-  if input == 0 || input > 82
-  puts "Lets try that again, #{USER_NAME}!".colorize(:red)
-  # input = games_in_a_season
-  elsif input > 0 && input < 83
-  puts "Thats sounds like a good season!"
-  return input #explicit returning
-  else
-  # return input
+valid_input = false
+input = ''
+  until valid_input
+    input = gets.chomp.to_i
+    if input == 0 || input > 82
+    puts "Lets try that again, #{USER_NAME}!".colorize(:red)
+    # return
+    elsif input > 0 && input < 83
+    valid_input = true
+    puts "Thats sounds like a good season!"
+    break
+    # else
+    # return input
+    end
   end
-  
+  return input #explicit returning after 
 end
 
 art = Artii::Base.new
@@ -217,7 +222,7 @@ end
 
   puts "\n"
   sleep(2)
-  puts "For a newbie in the NBA, you've done pretty well, you scored #{points_input} points, collected #{rebounds_input} rebounds, dished out #{assists_input} assists, and all through this managed to play a sturdy #{games_in_a_season} games against these giants ! Nice Work #{USER_NAME}"
+  puts "For a newbie in the NBA, you've done pretty well, you scored #{points_input} points, collected #{rebounds_input} rebounds, dished out #{assists_input} assists, and all through this managed to play a sturdy #{games_input} games against these giants ! Nice Work #{USER_NAME}"
   sleep(2)
   puts "\n"
   puts "Heres you on the table".colorize(:yellow)
