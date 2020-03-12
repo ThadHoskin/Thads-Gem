@@ -40,7 +40,17 @@ def stats_getter(statement)
   puts statement
 end
 
+def try_again(statement)
+  puts statement
+end
 
+def player_description(statement)
+  puts statement 
+end
+
+def player_praise(statement)
+  puts statement
+end
   # p player_data[0]["Assists"]
 
 
@@ -97,26 +107,26 @@ puts table
   case user_input 
   when 1
   valid_input = true
-    puts "You chose Kevin Durant! Reigning finals MVP, Nice work. "
+    player_description("You chose Kevin Durant! Reigning finals MVP, Nice work.")
       sleep(2)
     stats_getter("Let me get those stats for you...")
       puts "\n"
       sleep(2)
-      print_player_detail(player_data, user_input - 1)
+    print_player_detail(player_data, user_input - 1)
     # puts "Ahhh, wow !! He's had a good 2018-2019 season, yet again !"
   when 2
   valid_input = true
-    puts "You chose Giannis Antetokounmpo, the Greek Freak ! Lets go Bucks ! "
+    player_description("You chose Giannis Antetokounmpo, the Greek Freak! Lets go Bucks") 
       sleep(2)
     stats_getter("Let me get those stats for you...")
       sleep(2)
     #pull Giannis stats
     print_player_detail(player_data, user_input - 1)
     sleep(2)
-    puts "He has been incredible, I'd reckon hes got the MVP , wouldn't you !"
+    player_praise("He has been incredible, I'd reckon hes got the MVP , wouldn't you !")
   when  3
   valid_input = true
-    puts "You chose Lebron James, The Chosen One, The King ! Good stuff. "
+    player_description("You chose Lebron James, The Chosen One, The King ! Good stuff.")
       sleep(2)
     # puts "Can never go wrong with The King! "
     stats_getter("Let me get those stats for you...")
@@ -124,10 +134,10 @@ puts table
     #pull lebron stats
     print_player_detail(player_data, user_input - 1)
     sleep(2)
-    puts "Another great year from Lebron , 33 and still got it !!"
+    
   when  4
   valid_input = true
-    puts "You chose James Harden, the Beard, the reigning MVP ! Lets get some fouls ;)"
+    player_description("You chose James Harden, the Beard, the reigning MVP ! Lets get some fouls ;)")
     sleep(2)
     # puts "Well, you know you're going to get those stats when you choose The Beard, don't ya !"
     stats_getter("Let me get those stats for you...")
@@ -137,14 +147,14 @@ puts table
     # puts "Well, he may have not got another MVP , but cant say he wasn't close can we ?"
   when  5
   valid_input = true
-    puts "You chose Russell Westbrook, the walking triple double ! Thunder Up Baby !!"
-      sleep(2)
+    player_description("You chose Russell Westbrook, the walking triple double ! Thunder Up Baby !!")
+    sleep(2)
     puts  "Ohhhh, you've chosen the Brody, that's the one, lets see if he can get another one of those triple doubles eh ! "
-      sleep(2)
+    sleep(2)
     stats_getter("Let me get those stats for you...")
     print_player_detail(player_data, user_input - 1)
     sleep(2)
-    puts  "WOW !! Another triple double season, he's one of a kind isn't he !"
+    player_praise("WOW !! Another triple double season, he's one of a kind isn't he !")
 
   else # user_input != 1 || user_input != 2 || user_input != 3 || user_input != 4 || user_input != 5
     puts "Error : choose a number between 1 and 5 please! Lets try that again"
@@ -162,14 +172,14 @@ end
 
   puts "I can assume that you yourself like basketball, lets see where you'd fit in with these guys..."
 
-    sleep(2)
+  sleep(2)
   puts "\n"
     
     puts "How many points do you think you would score against these guys ?".colorize(:yellow)
-# def points_input_getter
     points_input = gets.chomp.to_i
       if points_input == 0 || points_input > 30
-        puts "Lets try that again #{user_name}!".colorize(:red) 
+      try_again("Lets try that again, #{user_name}!".colorize(:red)) 
+
        #how do i return to the start of the loop?
       elsif points_input > 0 || points_input < 30
         puts "Ohhh , feeling lucky !"
@@ -182,7 +192,7 @@ end
 # def rebounds_input_getter
     rebounds_input = gets.chomp.to_i
       if rebounds_input == 0 || rebounds_input > 12#back to the start of the loop again after first false condition
-        puts "Lets try that again #{user_name}".colorize(:red)
+      try_again("Lets try that again, #{user_name}!".colorize(:red)) 
       elsif rebounds_input > 0 || rebounds_input < 12
         puts "Feeling very lucky ! Remember, these guys are really tall"
       else  
@@ -194,7 +204,7 @@ end
 # def assists_input_getter
       assists_input = gets.chomp.to_i
         if assists == 0 || assists > 12
-          puts "Lets try that again #{user_name}".colorize(:red)
+        try_again("Lets try that again, #{user_name}!".colorize(:red))   
         elsif assists_input > 0 || assists_input < 12
           puts "Can't believe it , got a John Stockton amongst us ! "
         else 
@@ -207,7 +217,7 @@ end
 # def games_played_input
       games_played = gets.chomp.to_i
         if games_played == 0 || games_played > 82
-          puts "Thats not possible #{user_name}! Try again please.".colorize(:red) #back to start of loop please
+        try_again("Lets try that again, #{user_name}!".colorize(:red))  #back to start of loop please
         elsif games_played > 65 && games_played < 83
           puts "I think that would be a very good effort #{user_name}"
         else
