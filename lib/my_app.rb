@@ -57,7 +57,7 @@ def user_input_data(datatype)
 
   puts "How many #{datatype} do you think you would get?".colorize(:yellow)
   input = gets.chomp.to_i
-  if datatype == "points"
+  if datatype == "points"    #games played?
     comparison_datatype = 30
   else
     comparison_datatype = 12
@@ -74,15 +74,15 @@ def user_input_data(datatype)
 end
 
 def games_in_a_season
-  # puts "How many games out of 82 do you think you could play?".colorize(:yellow)
   input = gets.chomp.to_i
   if input == 0 || input > 82
-    puts "Lets try that again, #{USER_NAME}!".colorize(:red)
-    # input = games_in_a_season
+  puts "Lets try that again, #{USER_NAME}!".colorize(:red)
+  # input = games_in_a_season
   elsif input > 0 && input < 83
-    puts "Thats sounds like a good season!"
+  puts "Thats sounds like a good season!"
+  return input #explicit returning
   else
-  return input
+  # return input
   end
   
 end
@@ -115,12 +115,7 @@ until valid_input
 table = table_maker
 puts table
 
-  # puts "1. Kevin Durant"
-  # puts "2. Giannis Antetokounmpo"
-  # puts "3. Lebron James"
-  # puts "4. James Harden"
-  # puts "5. Russell Westbrook"
-
+  
   puts "-" *45
 
   user_input = gets.chomp.to_i
@@ -132,32 +127,29 @@ puts table
   when 1
   valid_input = true
     player_description("You chose Kevin Durant! Reigning finals MVP, Nice work.")
-      sleep(2)
+    sleep(2)
     stats_getter("Let me get those stats for you...")
-      puts "\n"
-      sleep(2)
+    puts "\n"
+    sleep(2)
     print_player_detail(player_data, user_input - 1)
     # puts "Ahhh, wow !! He's had a good 2018-2019 season, yet again !"
   when 2
   valid_input = true
     player_description("You chose Giannis Antetokounmpo, the Greek Freak! Lets go Bucks!") 
-      sleep(2)
+    sleep(2)
     stats_getter("Let me get those stats for you...")
-      "\n"
-      sleep(2)
-    #pull Giannis stats
+    "\n"
+    sleep(2)
     print_player_detail(player_data, user_input - 1)
     sleep(2)
     player_praise("He has been incredible, I'd reckon hes got the MVP , wouldn't you !")
   when  3
   valid_input = true
     player_description("You chose Lebron James, The Chosen One, The King ! Good stuff.")
-      sleep(2)
-    # puts "Can never go wrong with The King! "
+    sleep(2)
     stats_getter("Let me get those stats for you...")
-      "\n"
-      sleep(2)
-    #pull lebron stats
+    "\n"
+    sleep(2)
     print_player_detail(player_data, user_input - 1)
     sleep(2)
     
@@ -196,7 +188,7 @@ end
   puts "-" *45
   puts "Press enter to continue"
   puts gets.chomp
-    sleep(2)
+  sleep(2)
 
   # #need to have to go back to the start if the wrong input was used.
 
@@ -225,7 +217,7 @@ end
 
   puts "\n"
   sleep(2)
-  puts "For a newbie in the NBA, you've done pretty well, you scored #{points_input} points, collected #{rebounds_input} rebounds, dished out #{assists_input} assists, and all through this managed to play a sturdy #{games_input} games against these giants ! Nice Work #{USER_NAME}"
+  puts "For a newbie in the NBA, you've done pretty well, you scored #{points_input} points, collected #{rebounds_input} rebounds, dished out #{assists_input} assists, and all through this managed to play a sturdy #{games_in_a_season} games against these giants ! Nice Work #{USER_NAME}"
   sleep(2)
   puts "\n"
   puts "Heres you on the table".colorize(:yellow)
