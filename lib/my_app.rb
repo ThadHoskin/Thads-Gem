@@ -160,28 +160,30 @@ end
 
   # #need to have to go back to the start if the wrong input was used.
 
-  puts "After all that, i can assume that you yourself like basketball, lets see where you'd fit in with these guys..."
+  puts "I can assume that you yourself like basketball, lets see where you'd fit in with these guys..."
 
     sleep(2)
   puts "\n"
+    
     puts "How many points do you think you would score against these guys ?".colorize(:yellow)
 # def points_input_getter
     points_input = gets.chomp.to_i
-      if points_input == 0
-        puts "Lets try that again!".colorize(:red)  #how do i return to the start of the loop?
-      elsif points_input == 30 || points_input > 30
+      if points_input == 0 || points_input > 30
+        puts "Lets try that again #{user_name}!".colorize(:red) 
+       #how do i return to the start of the loop?
+      elsif points_input > 0 || points_input < 30
         puts "Ohhh , feeling lucky !"
       else
         puts "Nice! Some truth to it! "
       end
-# end  
+    
     sleep(2)
     puts "What about rebounds ? How many of these do you think you'd be able to get?".colorize(:yellow)
 # def rebounds_input_getter
     rebounds_input = gets.chomp.to_i
-      if rebounds_input == 0 #back to the start of the loop again after first false condition
-        puts "Lets try that again".colorize(:red)
-      elsif rebounds_input == 10 || rebounds_input > 10
+      if rebounds_input == 0 || rebounds_input > 12#back to the start of the loop again after first false condition
+        puts "Lets try that again #{user_name}".colorize(:red)
+      elsif rebounds_input > 0 || rebounds_input < 12
         puts "Feeling very lucky ! Remember, these guys are really tall"
       else  
         puts "Nice , to be honest, i'd be happy wth any !"
@@ -191,7 +193,9 @@ end
     puts "I suppose we better check those assists out now, eh? You reckon you could get many of these? Care to venture a guess?".colorize(:yellow)
 # def assists_input_getter
       assists_input = gets.chomp.to_i
-        if assists_input == 10 || assists_input > 10
+        if assists == 0 || assists > 12
+          puts "Lets try that again #{user_name}".colorize(:red)
+        elsif assists_input > 0 || assists_input < 12
           puts "Can't believe it , got a John Stockton amongst us ! "
         else 
           puts "Thats a good effort, I think we'd see some turnovers too though unfortunately ! "
@@ -203,10 +207,9 @@ end
 # def games_played_input
       games_played = gets.chomp.to_i
         if games_played == 0 || games_played > 82
-          puts "Thats not possible! Try again please.".colorize(:red) #back to start of loop please
+          puts "Thats not possible #{user_name}! Try again please.".colorize(:red) #back to start of loop please
         elsif games_played > 65 && games_played < 83
-          puts "I think that would be a very good effort"
-        
+          puts "I think that would be a very good effort #{user_name}"
         else
           puts "I think any number of games played is a good effort!!"
         end
