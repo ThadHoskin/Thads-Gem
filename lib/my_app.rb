@@ -21,13 +21,13 @@ def start_basketball_app
 end
 
   def user_input_full_data  # this is to add to the csv file, and the options menu, then delete again. 
-    ["2018-2019",user_name, points_input, rebounds_input, assists_input, games_played]
+    ["2018-2019",USER_NAME, points_input, rebounds_input, assists_input, games_played]
   end
 
   # def add_to_csv #adding data to csv
   #   user_input_full_data = CSV.parse(<<~ROWS, headers: true)
   #   Year,Player,Points,Rebounds,Assists,Games Played
-  #   2018-2019,user_name,points_input,rebounds_input,assists_input,games_played_input
+  #   2018-2019,USER_NAME,points_input,rebounds_input,assists_input,games_played_input
   # ROWS
   # end
 
@@ -53,28 +53,37 @@ def player_praise(statement)
 end
   # p player_data[0]["Assists"]
 
+def user_input_data(datatype)
 
-  art = Artii::Base.new
-  puts art.asciify "Basketball"
+  puts "How many #{datatype} do you think you would get?".colorize(:yellow)
+  input = gets.chomp.to_i
+  if datatype == "points"
+    comparison_datatype = 30
+  else
+    comparison_datatype = 12
+  end 
+  if input == 0 || input > comparison_datatype
+    puts "Lets try that again, #{USER_NAME}!".colorize(:red)
+    input = user_input_data(datatype)
+  elsif input > 0 || input < comparison_datatype
+    puts "Ohhh , feeling lucky !"
+  else 
+    puts "Nice! Some truth to it! "
+  end
+  return input
+end
 
+art = Artii::Base.new
+puts art.asciify "Basketball"
+puts "Hey there, whats your name ?".colorize(:yellow)
+USER_NAME = gets.chomp
+puts "Lets play some basketball #{USER_NAME}!!! "
+puts "-" * 45
+sleep(2)
+puts "Who is your favorite basketball player out of the following?".colorize(:yellow)
+puts "-" * 45
+sleep(2)
 
-
-
-  # puts "hello world"  
-
- 
-
-  # end
-
-  
-  puts "Hey there, whats your name ?".colorize(:yellow)
-    user_name = gets.chomp
-  puts "Lets play some basketball #{user_name}!!! "
-  puts "-" * 45
-    sleep(2)
-  puts "Who is your favorite basketball player out of the following?".colorize(:yellow)
-  puts "-" * 45
-    sleep(2)
 def table_maker
 rows = []
   rows << ["Kevin Durant", 1]
@@ -174,67 +183,29 @@ end
 
   sleep(2)
   puts "\n"
-    
-    puts "How many points do you think you would score against these guys ?".colorize(:yellow)
-    points_input = gets.chomp.to_i
-      if points_input == 0 || points_input > 30
-      try_again("Lets try that again, #{user_name}!".colorize(:red)) 
-
-       #how do i return to the start of the loop?
-      elsif points_input > 0 || points_input < 30
-        puts "Ohhh , feeling lucky !"
-      else
-        puts "Nice! Some truth to it! "
-      end
-    
-    sleep(2)
-    puts "What about rebounds ? How many of these do you think you'd be able to get?".colorize(:yellow)
-# def rebounds_input_getter
-    rebounds_input = gets.chomp.to_i
-      if rebounds_input == 0 || rebounds_input > 12#back to the start of the loop again after first false condition
-      try_again("Lets try that again, #{user_name}!".colorize(:red)) 
-      elsif rebounds_input > 0 || rebounds_input < 12
-        puts "Feeling very lucky ! Remember, these guys are really tall"
-      else  
-        puts "Nice , to be honest, i'd be happy wth any !"
-      end
-# end
-    sleep(2)
-    puts "I suppose we better check those assists out now, eh? You reckon you could get many of these? Care to venture a guess?".colorize(:yellow)
-# def assists_input_getter
-      assists_input = gets.chomp.to_i
-        if assists == 0 || assists > 12
-        try_again("Lets try that again, #{user_name}!".colorize(:red))   
-        elsif assists_input > 0 || assists_input < 12
-          puts "Can't believe it , got a John Stockton amongst us ! "
-        else 
-          puts "Thats a good effort, I think we'd see some turnovers too though unfortunately ! "
-        end
-# end  
-    sleep(2)
-    puts "\n"
-    puts "Lastly, i suppose we better check how durable you're going to be. Out of 82 games, how many do you think you'd be able to play in?".colorize(:yellow)
-# def games_played_input
-      games_played = gets.chomp.to_i
-        if games_played == 0 || games_played > 82
-        try_again("Lets try that again, #{user_name}!".colorize(:red))  #back to start of loop please
-        elsif games_played > 65 && games_played < 83
-          puts "I think that would be a very good effort #{user_name}"
-        else
-          puts "I think any number of games played is a good effort!!"
-        end
-# end
-
-    puts "\n"
-  
-    sleep(2)
-
-
-  puts "For a newbie in the NBA, you've done pretty well, you scored #{points_input} points, collected #{rebounds_input} rebounds, dished out #{assists_input} assists, and all through this managed to play a sturdy #{games_played} games against these giants ! Nice Work #{user_name}"
+  points_input = user_input_data("points")
+  sleep(2)
+  rebounds_input = user_input_data("rebounds")
+  sleep(2)
+  assists_input = user_input_data("assists")
+  sleep(2)
+  puts "\n"
+  puts "Lastly, i suppose we better check how durable you're going to be. Out of 82 games, how many do you think you'd be able to play in?".colorize(:yellow)
+  games_played = gets.chomp.to_i
+  if games_played == 0 || games_played > 82
+  try_again("Lets try that again, #{USER_NAME}!".colorize(:red))  #back to start of loop please
+  elsif games_played > 65 && games_played < 83
+    puts "I think that would be a very good effort #{USER_NAME}"
+  else
+    puts "I think any number of games played is a good effort!!"
+  end
+  puts "\n"
+  sleep(2)
+  puts "For a newbie in the NBA, you've done pretty well, you scored #{points_input} points, collected #{rebounds_input} rebounds, dished out #{assists_input} assists, and all through this managed to play a sturdy #{games_played} games against these giants ! Nice Work #{USER_NAME}"
 
   puts "heres you on the table".colorize(:yellow)
 
-  table << [user_name,6]
+  table << [USER_NAME,6]
 
   puts table
 
@@ -292,11 +263,11 @@ start_basketball_app
 # # def get_user_input
 
 
-# user_name = Player_rating.new(15,6,3)
-# p user_name
+# USER_NAME = Player_rating.new(15,6,3)
+# p USER_NAME
 
 
-# user_name_hash = user_name.to_h
+# USER_NAME_hash = USER_NAME.to_h
 
-# p user_name_hash
+# p USER_NAME_hash
 
