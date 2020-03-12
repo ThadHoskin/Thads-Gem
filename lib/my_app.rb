@@ -211,10 +211,10 @@ end
           puts "I think any number of games played is a good effort!!"
         end
 # end
-    sleep(2)
 
     puts "\n"
   
+    sleep(2)
 
 
   puts "For a newbie in the NBA, you've done pretty well, you scored #{points_input} points, collected #{rebounds_input} rebounds, dished out #{assists_input} assists, and all through this managed to play a sturdy #{games_played} games against these giants ! Nice Work #{user_name}"
@@ -226,7 +226,7 @@ end
   puts table
 
   # now take you out of the array
-  puts "Actually, sorry i think i preferred the table the way it was!"
+  puts "Actually, sorry i think i preferred the table the way it was!".colorize(:red)
   sleep(2)
   table = table_maker
   puts table
