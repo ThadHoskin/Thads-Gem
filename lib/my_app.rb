@@ -95,13 +95,16 @@ end
 art = Artii::Base.new
 puts art.asciify "Basketball"
 
+
 puts "Hey there, whats your name ?".colorize(:yellow)
 USER_NAME = gets.chomp
+# puts "Please enter a correct name".colorize(:red)
 puts "Lets play some basketball #{USER_NAME}!!! "
 puts "-" * 45
 sleep(2)
 puts "Who is your favorite basketball player out of the following?".colorize(:yellow)
 puts "-" * 45
+
 sleep(2)
 
 def table_maker
